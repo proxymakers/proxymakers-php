@@ -5,7 +5,7 @@
 # proyxmakers-php
 ProxyMakers PHP Library (with laravel support)
 
-please read our [documentation](https://proxymakers/developers) for usage.
+please read our [documentation](https://proxymakers.com/developers) for usage.
 
 ---
 
