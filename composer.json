@@ -1,0 +1,34 @@
+{
+  "name": "ProxyMakers/API",
+  "description": "PHP Library for ProxyMakers API (with laravel support)",
+  "homepage": "https://proxymakers.com/developers",
+  "type": "library",
+  "require": {
+    "illuminate/support": "~5.5",
+    "php": "^7.2",
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ProxyMakers\\API\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "ProxyMakers\\API\\ProxyMakersServiceProvider"
+      ]
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Pezhvak",
+      "email": "pezhvakimv@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev"
+}
