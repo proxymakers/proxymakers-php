@@ -3,9 +3,10 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class CalculateOrderPriceResponse
- * @package ProxyMakers\API\Responses
+ * Class CalculateOrderPriceResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property object $user
  * @property object $prices
  */
@@ -13,7 +14,7 @@ class CalculateOrderPriceResponse extends BaseResponse
 {
     /**
      * Get Credit
-     * amount of the credit available in your account
+     * amount of the credit available in your account.
      *
      * @return float
      */
@@ -24,7 +25,7 @@ class CalculateOrderPriceResponse extends BaseResponse
 
     /**
      * Get Currency
-     * get currency of the balance
+     * get currency of the balance.
      *
      * @return string currency code of the balance
      */
@@ -35,7 +36,7 @@ class CalculateOrderPriceResponse extends BaseResponse
 
     /**
      * Get Order Price
-     * credit required to order given resources
+     * credit required to order given resources.
      *
      * @return float price
      */
@@ -46,7 +47,7 @@ class CalculateOrderPriceResponse extends BaseResponse
 
     /**
      * Get Renew Price
-     * credit required to renew given resources
+     * credit required to renew given resources.
      *
      * @return float amount
      */
@@ -57,7 +58,7 @@ class CalculateOrderPriceResponse extends BaseResponse
 
     /**
      * Get Price Rank
-     * the rank that price has been calculated for
+     * the rank that price has been calculated for.
      *
      * @return string price rank
      */

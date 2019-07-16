@@ -15,10 +15,10 @@ use ProxyMakers\API\Responses\SetOrderStatusResponse;
 use ProxyMakers\API\Responses\UpdateOrderSettingsResponse;
 
 /**
- * Class ProxyMakers
+ * Class ProxyMakers.
  *
- * @package ProxyMakers\API
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @see https://proxymakers.com/developers
  */
 class ProxyMakers
@@ -31,11 +31,14 @@ class ProxyMakers
      * ProxyMakers constructor.
      *
      * @param string $token
+     *
      * @throws TokenNotSetException
      */
     public function __construct(string $token)
     {
-        if (empty($token)) $this->_throwInvalidTokenException();
+        if (empty($token)) {
+            $this->_throwInvalidTokenException();
+        }
         $this->_token = $token;
     }
 
@@ -48,14 +51,15 @@ class ProxyMakers
     }
 
     /**
-     * Check Credit
+     * Check Credit.
      *
      * using this endpoint you can check how much credit your account has.
      *
      * @see https://proxymakers.com/developers#check_credit
      *
-     * @return CheckCreditResponse
      * @throws TokenNotSetException
+     *
+     * @return CheckCreditResponse
      */
     public function checkCredit(): CheckCreditResponse
     {
@@ -63,27 +67,33 @@ class ProxyMakers
     }
 
     /**
-     * Call API Endpoint
+     * Call API Endpoint.
      *
-     * @param string $method
-     * @param string $endpoint
+     * @param string     $method
+     * @param string     $endpoint
      * @param array|null $data
-     * @return mixed
+     *
      * @throws TokenNotSetException
+     *
+     * @return mixed
      */
     private function _call(string $method, string $endpoint, array $data = null)
     {
         $headers = [
-            'Authorization' => 'Bearer ' . $this->_token,
+            'Authorization' => 'Bearer '.$this->_token,
             'Accept'        => 'application/json',
         ];
-        if (!isset($this->_client)) $this->_client = new Client(['headers' => $headers]);
+        if (!isset($this->_client)) {
+            $this->_client = new Client(['headers' => $headers]);
+        }
         $response = '';
+
         try {
-            if (is_null($data))
-                $response = $this->_client->$method(self::BASE_URL . $endpoint);
-            else
-                $response = $this->_client->$method(self::BASE_URL . $endpoint, ['form_params' => $data]);
+            if (is_null($data)) {
+                $response = $this->_client->$method(self::BASE_URL.$endpoint);
+            } else {
+                $response = $this->_client->$method(self::BASE_URL.$endpoint, ['form_params' => $data]);
+            }
         } catch (ClientException $exception) {
             switch ($exception->getCode()) {
                 case 401:
@@ -97,23 +107,26 @@ class ProxyMakers
                     }
             }
         }
+
         return $response;
     }
 
     /**
-     * Calculate Order Price
+     * Calculate Order Price.
      *
      * there is no easy way to calculate our prices on your own, it depends on membership rank, quantity, period and
      * type of the proxies being ordered. using this endpoint enables you to calculate the order price easily.
      *
      * @see https://proxymakers.com/developers#calculate_order_price
      *
-     * @param string $service the service you want to calculate prices for, can be 'proxy_ipv4' or 'proxy_ipv6'
-     * @param int $quantity quantity of the given service
-     * @param int $period amount in days for the service to be ordered/renewed, minimum is 1 and maximum is 90 days
-     * @param string $intent this can be either 'order' or 'renew', by default it's 'order', used for rank calculation
-     * @return CalculateOrderPriceResponse
+     * @param string $service  the service you want to calculate prices for, can be 'proxy_ipv4' or 'proxy_ipv6'
+     * @param int    $quantity quantity of the given service
+     * @param int    $period   amount in days for the service to be ordered/renewed, minimum is 1 and maximum is 90 days
+     * @param string $intent   this can be either 'order' or 'renew', by default it's 'order', used for rank calculation
+     *
      * @throws TokenNotSetException
+     *
+     * @return CalculateOrderPriceResponse
      */
     public function calculateOrderPrice(string $service, int $quantity, int $period, string $intent = 'order')
     {
@@ -122,19 +135,21 @@ class ProxyMakers
     }
 
     /**
-     * Order Proxy
+     * Order Proxy.
      *
      * using this endpoint you can register new proxies.
      *
      * @see https://proxymakers.com/developers#order_proxies
      *
-     * @param string $service the service you want to calculate prices for, can be 'proxy_ipv4' or 'proxy_ipv6'
-     * @param string $geo location of the ip, for now it can be 'US' or 'DE'
-     * @param int $quantity quantity of the given service
-     * @param int $period amount in days for the service to be ordered/renewed, minimum is 1 and maximum is 90 days
+     * @param string $service  the service you want to calculate prices for, can be 'proxy_ipv4' or 'proxy_ipv6'
+     * @param string $geo      location of the ip, for now it can be 'US' or 'DE'
+     * @param int    $quantity quantity of the given service
+     * @param int    $period   amount in days for the service to be ordered/renewed, minimum is 1 and maximum is 90 days
      * @param string $schedule this can be 'none', 'first_available', 'round_robin', 'random_choice' or 'least_connection'; default is 'none'
-     * @return OrderProxyResponse
+     *
      * @throws TokenNotSetException
+     *
+     * @return OrderProxyResponse
      */
     public function orderProxy(string $service, string $geo, int $quantity, int $period,
                                string $schedule = 'none'): OrderProxyResponse
@@ -144,16 +159,18 @@ class ProxyMakers
     }
 
     /**
-     * Renew Order
+     * Renew Order.
      *
      * using this endpoint you can renew your order.
      *
      * @see https://proxymakers.com/developers#renew_order
      *
      * @param string $order_id id of the order to be renewed
-     * @param int $period amount in days for the service to be renewed, minimum is 1 and maximum is 90 days
-     * @return RenewOrderResponse
+     * @param int    $period   amount in days for the service to be renewed, minimum is 1 and maximum is 90 days
+     *
      * @throws TokenNotSetException
+     *
+     * @return RenewOrderResponse
      */
     public function renewOrder(string $order_id, int $period): RenewOrderResponse
     {
@@ -162,30 +179,33 @@ class ProxyMakers
     }
 
     /**
-     * List Orders
+     * List Orders.
      *
      * by using this endpoint you can retrieve a list of your orders.
      *
      * @see https://proxymakers.com/developers#list_orders
      *
-     * @return ListOrdersResponse
      * @throws TokenNotSetException
+     *
+     * @return ListOrdersResponse
      */
     public function listOrders(): ListOrdersResponse
     {
-        return new ListOrdersResponse($this->_call('GET', "orders"));
+        return new ListOrdersResponse($this->_call('GET', 'orders'));
     }
 
     /**
-     * Get Order Details
+     * Get Order Details.
      *
      * by using this endpoint you can retrieve details of the given order
      *
      * @see https://proxymakers.com/developers#order_details
      *
      * @param string $order_id
-     * @return GetOrderDetailsResponse
+     *
      * @throws TokenNotSetException
+     *
+     * @return GetOrderDetailsResponse
      */
     public function getOrderDetails(string $order_id): GetOrderDetailsResponse
     {
@@ -193,37 +213,41 @@ class ProxyMakers
     }
 
     /**
-     * Update Order Settings
+     * Update Order Settings.
      *
      * to set an alias for your order, change schedule algorithm or auto renew status you can use this endpoint.
      *
      * @see https://proxymakers.com/developers#order_settings
      *
-     * @param string $order_id
+     * @param string      $order_id
      * @param string|null $name
-     * @param bool|null $auto_renew
+     * @param bool|null   $auto_renew
      * @param string|null $schedule
-     * @return UpdateOrderSettingsResponse
+     *
      * @throws TokenNotSetException
+     *
+     * @return UpdateOrderSettingsResponse
      */
-    public function updateOrderSettings(string $order_id, string $name = NULL, bool $auto_renew = NULL,
-                                        string $schedule = NULL): UpdateOrderSettingsResponse
+    public function updateOrderSettings(string $order_id, string $name = null, bool $auto_renew = null,
+                                        string $schedule = null): UpdateOrderSettingsResponse
     {
         return new UpdateOrderSettingsResponse($this->_call('POST',
             "orders/{$order_id}/settings", compact('name', 'auto_renew', 'schedule')));
     }
 
     /**
-     * Update Order Status
+     * Update Order Status.
      *
      * using this endpoint you can stop or start your order, useful for restarting proxies as well.
      *
      * @see https://proxymakers.com/developers#set_order_status
      *
      * @param string $order_id
-     * @param bool $active
-     * @return SetOrderStatusResponse
+     * @param bool   $active
+     *
      * @throws TokenNotSetException
+     *
+     * @return SetOrderStatusResponse
      */
     public function setOrderStatus(string $order_id, bool $active): SetOrderStatusResponse
     {

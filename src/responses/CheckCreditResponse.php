@@ -3,9 +3,10 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class CheckCreditResponse
- * @package ProxyMakers\API\Responses
+ * Class CheckCreditResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property float $credit amount of the credit available
  * @property string $currency currency of the balance
  */
@@ -13,7 +14,7 @@ class CheckCreditResponse extends BaseResponse
 {
     /**
      * Get Credit
-     * amount of the credit available in your account
+     * amount of the credit available in your account.
      *
      * @return float
      */
@@ -24,7 +25,7 @@ class CheckCreditResponse extends BaseResponse
 
     /**
      * Get Currency
-     * get currency of the balance
+     * get currency of the balance.
      *
      * @return string currency code of the balance
      */

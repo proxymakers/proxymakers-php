@@ -3,15 +3,16 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class SetOrderStatusResponse
- * @package ProxyMakers\API\Responses
+ * Class SetOrderStatusResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property string $status
  */
 class SetOrderStatusResponse extends BaseResponse
 {
     /**
-     * Get Updated Status
+     * Get Updated Status.
      *
      * get updated status
      *

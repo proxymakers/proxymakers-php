@@ -3,15 +3,16 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class ListOrdersResponse
- * @package ProxyMakers\API\Responses
+ * Class ListOrdersResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property array $orders list of all orders
  */
 class ListOrdersResponse extends BaseResponse
 {
     /**
-     * Get Orders
+     * Get Orders.
      *
      * array of all orders
      *

@@ -3,16 +3,17 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class OrderProxyResponse
- * @package ProxyMakers\API\Responses
+ * Class OrderProxyResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property object $order
  * @property object $price
  */
 class OrderProxyResponse extends BaseResponse
 {
     /**
-     * Get Order Price
+     * Get Order Price.
      *
      * amount that has been subtracted from your credit for your order
      *
@@ -24,7 +25,7 @@ class OrderProxyResponse extends BaseResponse
     }
 
     /**
-     * Get Order Price Currency
+     * Get Order Price Currency.
      *
      * currency used for calculating order price
      *
@@ -36,7 +37,7 @@ class OrderProxyResponse extends BaseResponse
     }
 
     /**
-     * Get Order Id
+     * Get Order Id.
      *
      * get the created order id
      *
