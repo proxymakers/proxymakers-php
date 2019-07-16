@@ -3,15 +3,16 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class UpdateOrderSettingsResponse
- * @package ProxyMakers\API\Responses
+ * Class UpdateOrderSettingsResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property object $details
  */
 class UpdateOrderSettingsResponse extends BaseResponse
 {
     /**
-     * Get Proxy Details
+     * Get Proxy Details.
      *
      * get updated proxy details
      *

@@ -3,14 +3,12 @@
 namespace ProxyMakers\API\Responses;
 
 use function GuzzleHttp\json_decode as jdecode;
-use function GuzzleHttp\json_encode as jencode;
 use Mockery\Exception;
 use Psr\Http\Message\ResponseInterface;
-use stdClass;
 
 /**
- * Class BaseResponse
- * @package ProxyMakers\API\Responses
+ * Class BaseResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
  */
 class BaseResponse
@@ -22,6 +20,7 @@ class BaseResponse
     public function __construct(ResponseInterface $response)
     {
         $this->_response = $response;
+
         try {
             $this->_responseObject = jdecode($response->getBody()->getContents());
             $this->_data = $this->_responseObject->data;
@@ -31,7 +30,7 @@ class BaseResponse
     }
 
     /**
-     * Get Response Data
+     * Get Response Data.
      *
      * @return mixed
      */
@@ -41,7 +40,7 @@ class BaseResponse
     }
 
     /**
-     * Get Response Interface
+     * Get Response Interface.
      *
      * @return ResponseInterface
      */
@@ -62,7 +61,7 @@ class BaseResponse
     }
 
     /**
-     * Get Response Status
+     * Get Response Status.
      *
      * @return string response status
      */
@@ -72,7 +71,7 @@ class BaseResponse
     }
 
     /**
-     * Get HTTP Status Code
+     * Get HTTP Status Code.
      *
      * @return int http status code
      */

@@ -3,15 +3,16 @@
 namespace ProxyMakers\API\Responses;
 
 /**
- * Class RenewOrderResponse
- * @package ProxyMakers\API\Responses
+ * Class RenewOrderResponse.
+ *
  * @author Pezhvak <pezhvak@imvx.org>
+ *
  * @property object $price
  */
 class RenewOrderResponse extends BaseResponse
 {
     /**
-     * Get Renew Price
+     * Get Renew Price.
      *
      * amount that has been subtracted from your credit for your order
      *
@@ -23,7 +24,7 @@ class RenewOrderResponse extends BaseResponse
     }
 
     /**
-     * Get Order Price Currency
+     * Get Order Price Currency.
      *
      * currency used for calculating order price
      *
