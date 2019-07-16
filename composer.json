@@ -4,7 +4,6 @@
   "homepage": "https://proxymakers.com/developers",
   "type": "library",
   "require": {
-    "illuminate/support": "~5.5",
     "php": "^7.2",
     "guzzlehttp/guzzle": "^6.3"
   },
@@ -27,7 +26,8 @@
   "authors": [
     {
       "name": "Pezhvak",
-      "email": "pezhvakimv@gmail.com"
+      "email": "pezhvakimv@gmail.com",
+      "homepage": "https://pezhvak.imvx.org"
     }
   ],
   "minimum-stability": "dev"
