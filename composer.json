@@ -1,5 +1,5 @@
 {
-  "name": "ProxyMakers/API",
+  "name": "proxymakers/api",
   "description": "PHP Library for ProxyMakers API (with laravel support)",
   "homepage": "https://proxymakers.com/developers",
   "type": "library",
