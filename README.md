@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/proxymakers/proxymakers-php.svg?branch=master)](https://travis-ci.org/proxymakers/proxymakers-php)
+[![StyleCI](https://github.styleci.io/repos/197049199/shield?branch=master)](https://github.styleci.io/repos/197049199)
 <a href="https://packagist.org/packages/proxymakers/proxymakers-php"><img src="https://poser.pugx.org/proxymakers/proxymakers-php/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/proxymakers/proxymakers-php"><img src="https://poser.pugx.org/proxymakers/proxymakers-php/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/proxymakers/proxymakers-php"><img src="https://poser.pugx.org/proxymakers/proxymakers-php/license.svg" alt="License"></a>
