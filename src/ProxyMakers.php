@@ -23,7 +23,7 @@ use ProxyMakers\API\Responses\UpdateOrderSettingsResponse;
  */
 class ProxyMakers
 {
-    const BASE_URL = 'http://proxymakers.test/api/';
+    const BASE_URL = 'https://proxymakers.com/api/';
     private $_token;
     private $_client;
 
@@ -106,7 +106,7 @@ class ProxyMakers
      * there is no easy way to calculate our prices on your own, it depends on membership rank, quantity, period and
      * type of the proxies being ordered. using this endpoint enables you to calculate the order price easily.
      *
-     * @see http://proxymakers.test/developers#calculate_order_price
+     * @see https://proxymakers.com/developers#calculate_order_price
      *
      * @param string $service the service you want to calculate prices for, can be 'proxy_ipv4' or 'proxy_ipv6'
      * @param int $quantity quantity of the given service
@@ -126,7 +126,7 @@ class ProxyMakers
      *
      * using this endpoint you can register new proxies.
      *
-     * @see http://proxymakers.test/developers#order_proxies
+     * @see https://proxymakers.com/developers#order_proxies
      *
      * @param string $service the service you want to calculate prices for, can be 'proxy_ipv4' or 'proxy_ipv6'
      * @param string $geo location of the ip, for now it can be 'US' or 'DE'
@@ -148,7 +148,7 @@ class ProxyMakers
      *
      * using this endpoint you can renew your order.
      *
-     * @see http://proxymakers.test/developers#renew_order
+     * @see https://proxymakers.com/developers#renew_order
      *
      * @param string $order_id id of the order to be renewed
      * @param int $period amount in days for the service to be renewed, minimum is 1 and maximum is 90 days
@@ -166,7 +166,7 @@ class ProxyMakers
      *
      * by using this endpoint you can retrieve a list of your orders.
      *
-     * @see http://proxymakers.test/developers#list_orders
+     * @see https://proxymakers.com/developers#list_orders
      *
      * @return ListOrdersResponse
      * @throws TokenNotSetException
@@ -181,7 +181,7 @@ class ProxyMakers
      *
      * by using this endpoint you can retrieve details of the given order
      *
-     * @see http://proxymakers.test/developers#order_details
+     * @see https://proxymakers.com/developers#order_details
      *
      * @param string $order_id
      * @return GetOrderDetailsResponse
@@ -197,7 +197,7 @@ class ProxyMakers
      *
      * to set an alias for your order, change schedule algorithm or auto renew status you can use this endpoint.
      *
-     * @see http://proxymakers.test/developers#order_settings
+     * @see https://proxymakers.com/developers#order_settings
      *
      * @param string $order_id
      * @param string|null $name
@@ -218,7 +218,7 @@ class ProxyMakers
      *
      * using this endpoint you can stop or start your order, useful for restarting proxies as well.
      *
-     * @see http://proxymakers.test/developers#set_order_status
+     * @see https://proxymakers.com/developers#set_order_status
      *
      * @param string $order_id
      * @param bool $active
